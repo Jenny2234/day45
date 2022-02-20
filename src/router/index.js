@@ -2,12 +2,26 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import TestView from '../views/TestView.vue'
 import ProductView from '../views/ProductView.vue'
+import CommentView from '../views/CommentView.vue'
+import UserView from '../views/UserView.vue'
+import TodoView from '../views/TodoView.vue'
 
 const routes = [
   {
     path: '/',
     name: 'home',
     component: HomeView
+  },
+  {
+    path: '/users/:userId',
+    name: 'user',
+    component: UserView,
+    children:[
+      {
+        path: 'todos',
+        component: TodoView
+      }
+    ]
   },
   {
     path: '/test',
@@ -25,7 +39,11 @@ const routes = [
   },
   {
     path: '/products/:productId',
-    component: ProductView
+    component: ProductView,
+  },
+  {
+    path: '/products/:productId/comments',
+    component: CommentView
   }
 ]
 //router的設定不用動他

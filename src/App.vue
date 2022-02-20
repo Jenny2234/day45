@@ -3,14 +3,20 @@
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link> |
     <router-link to="/test">Test</router-link>
+
     <br/>
     <li v-for=" i in 5" :key="i">
       <router-link :to="`/products/${i}`">Product {{ i }}</router-link>
     </li>
+    <br/>
+    <li v-for=" i in 10" :key="i">
+      <router-link :to="`/users/${i}`">使用者:{{ i }}</router-link>
+    </li>
+
+    
   </nav>
   <router-view/>
 </template>
-
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
